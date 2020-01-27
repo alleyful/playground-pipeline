@@ -1,7 +1,12 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "lib": ["dom", "es2017", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "es2017",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -19,6 +24,12 @@
     "sourceMap": true,
     "jsx": "preserve"
   },
-  "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }
