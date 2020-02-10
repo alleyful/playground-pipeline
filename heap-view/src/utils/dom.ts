@@ -1,12 +1,12 @@
-import { snakeToCamel } from 'utils/string';
+import { snakeToCamel } from "utils/string";
 
 export const getWidth = (el: any): number => {
   let width = 0;
 
   if (el) {
     width += el.offsetWidth;
-    width += Number(getStyle(el, 'margin-left').replace(/px/i, '')) || 0;
-    width += Number(getStyle(el, 'margin-right').replace(/px/i, '')) || 0;
+    width += Number(getStyle(el, "margin-left").replace(/px/i, "")) || 0;
+    width += Number(getStyle(el, "margin-right").replace(/px/i, "")) || 0;
   }
 
   return width;
@@ -17,8 +17,8 @@ export const getHeight = (el: any): number => {
 
   if (el) {
     height += el.offsetHeight;
-    height += Number(getStyle(el, 'margin-top').replace(/px/i, '')) || 0;
-    height += Number(getStyle(el, 'margin-bottom').replace(/px/i, '')) || 0;
+    height += Number(getStyle(el, "margin-top").replace(/px/i, "")) || 0;
+    height += Number(getStyle(el, "margin-bottom").replace(/px/i, "")) || 0;
   }
 
   return height;
@@ -67,12 +67,12 @@ export const getDatasetByName = (el: any, name: string): any => {
 };
 
 export const getStyle = (el: any, cssRule: any) => {
-  let value = '';
+  let value = "";
 
   if (el) {
     if (document.defaultView && document.defaultView.getComputedStyle) {
       value = document.defaultView
-        .getComputedStyle(el, '')
+        .getComputedStyle(el, "")
         .getPropertyValue(cssRule);
     } else if (el.currentStyle) {
       cssRule = cssRule.replace(/-(\w)/g, function(strMatch: any, p1: any) {
@@ -87,7 +87,7 @@ export const getStyle = (el: any, cssRule: any) => {
 };
 
 export const clearStyle = (el: any) => {
-  el && el.setAttribute('style', '');
+  el && el.setAttribute("style", "");
 };
 
 export const isCollisionByPoint = (el: any, x: number, y: number): boolean => {

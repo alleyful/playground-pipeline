@@ -5,10 +5,10 @@ export const isPassword = (value: string) =>
   /^(?=.*[a-zA-Z])((?=.*\d)).{8,15}$/.test(value);
 
 export const email = (value: string) =>
-  isEmail(value) ? undefined : '유효하지 않은 이메일입니다.';
+  isEmail(value) ? undefined : "유효하지 않은 이메일입니다.";
 
 export const password = (value: string) =>
-  isPassword(value) ? undefined : '영문 대소문자, 숫자 조합이어야 합니다.';
+  isPassword(value) ? undefined : "영문 대소문자, 숫자 조합이어야 합니다.";
 
 export const isMobile = (): boolean =>
   !!window.navigator.userAgent.match(
@@ -23,34 +23,34 @@ export const isMSIE = (): boolean =>
 
 export const msieVersion = (): string => {
   let version: number = 0;
-  let ua: string = (window.navigator.userAgent || '').toLowerCase();
+  let ua: string = (window.navigator.userAgent || "").toLowerCase();
   let trident: any = ua.match(/Trident\/(\d.\d)/i);
 
   if (trident !== null) {
     switch (trident[1]) {
-      case '3.0':
+      case "3.0":
         version = 7;
         break;
 
-      case '4.0':
+      case "4.0":
         version = 8;
         break;
 
-      case '5.0':
+      case "5.0":
         version = 9;
         break;
 
-      case '6.0':
+      case "6.0":
         version = 10;
         break;
 
-      case '7.0':
+      case "7.0":
       default:
         version = 11;
         break;
     }
   } else {
-    let reg = new RegExp('MSIE ([0-9]{1,}[.0-9]{0,})');
+    let reg = new RegExp("MSIE ([0-9]{1,}[.0-9]{0,})");
 
     reg.exec(ua) !== null && (version = parseFloat(RegExp.$1));
   }
@@ -59,24 +59,24 @@ export const msieVersion = (): string => {
 };
 
 export const browserType = (): string => {
-  let type: string = '';
-  let ua: string = (window.navigator.userAgent || '').toLowerCase();
+  let type: string = "";
+  let ua: string = (window.navigator.userAgent || "").toLowerCase();
 
-  if (ua.indexOf('edge') !== -1) {
-    type = 'edge';
-  } else if (ua.indexOf('chrome') !== -1) {
-    type = 'chrome';
+  if (ua.indexOf("edge") !== -1) {
+    type = "edge";
+  } else if (ua.indexOf("chrome") !== -1) {
+    type = "chrome";
   } else if (
-    ua.indexOf('safari') !== -1 ||
-    ua.indexOf('applewebkit/5') !== -1
+    ua.indexOf("safari") !== -1 ||
+    ua.indexOf("applewebkit/5") !== -1
   ) {
-    type = 'safari';
-  } else if (ua.indexOf('firefox') !== -1) {
-    type = 'firefox';
-  } else if (ua.indexOf('opera') !== -1) {
-    type = 'opera';
+    type = "safari";
+  } else if (ua.indexOf("firefox") !== -1) {
+    type = "firefox";
+  } else if (ua.indexOf("opera") !== -1) {
+    type = "opera";
   } else {
-    type = isMSIE() ? 'msie' + msieVersion() : 'unknown-browser';
+    type = isMSIE() ? "msie" + msieVersion() : "unknown-browser";
   }
   return type;
 };

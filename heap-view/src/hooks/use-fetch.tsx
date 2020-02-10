@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-import { requestAPI } from 'utils/api';
+import { requestAPI } from "utils/api";
 
 export interface IOptions {
   url: string;
-  method: 'GET' | 'POST' | 'PATCH' | 'DELETE';
+  method: "GET" | "POST" | "PATCH" | "DELETE";
   params: any;
 }
 

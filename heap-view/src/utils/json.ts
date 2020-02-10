@@ -1,5 +1,5 @@
 export const getDeepValue = (source: any, paths: string): any =>
-  paths.split('.').reduce((target, path, index, array) => {
+  paths.split(".").reduce((target, path, index, array) => {
     target = target[path] || (array.length - 1 === index ? null : {});
 
     return target;
@@ -10,5 +10,5 @@ export const queryToJSON = (query: string): any =>
     `{"${decodeURIComponent(query)
       .replace(/&/g, '","')
       .replace(/=/g, '":"')
-      .replace(/\s/g, '')}"}`
+      .replace(/\s/g, "")}"}`
   );

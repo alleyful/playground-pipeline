@@ -1,9 +1,9 @@
-import { getPosition, clearStyle } from './dom';
+import { getPosition, clearStyle } from "./dom";
 
 const getDocumentElement = () =>
-  document['scrollingElement'] ||
-  document['documentElement'] ||
-  document['body'];
+  document["scrollingElement"] ||
+  document["documentElement"] ||
+  document["body"];
 
 export const isBottom = ({ el }: any) => {
   let { clientHeight, scrollHeight, scrollTop } = el || getDocumentElement();
@@ -21,8 +21,8 @@ export const lockScroll = (isLock: boolean) => {
   );
 
   if (isLock) {
-    el.style.position = 'fixed';
-    el.style.overflow = 'hidden';
+    el.style.position = "fixed";
+    el.style.overflow = "hidden";
     el.style.top = `-${currentTop}px`;
   } else {
     clearStyle(el);

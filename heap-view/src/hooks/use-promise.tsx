@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export default function usePromise(promiseCreater: any, deps: any) {
   const [resolved, setResolved] = useState(null);

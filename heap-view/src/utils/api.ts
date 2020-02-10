@@ -1,11 +1,11 @@
-import { format } from 'url';
-import fetch from 'unfetch';
+import { format } from "url";
+import fetch from "unfetch";
 
-import { getDeepValue } from 'utils/json';
-import { getLocale, getUserToken } from 'utils/storage';
+import { getDeepValue } from "utils/json";
+import { getLocale, getUserToken } from "utils/storage";
 
 export interface IOptions {
-  method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
+  method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
   url: string;
   params?: any;
 }
@@ -19,28 +19,28 @@ export const requestAPI = async ({ method, url, params }: IOptions) => {
   try {
     let isFormData = params instanceof FormData;
     let responseStatus: number = 0;
-    let path = `https://coapi.crowdworks.kr${url}`;
+    let path = url;
     let headers = Object.assign(
       {
-        'Accept-Language': getLocale(),
-        'X-AUTH-TOKEN': getUserToken() || ''
+        "Accept-Language": getLocale(),
+        "X-AUTH-TOKEN": getUserToken() || ""
       },
-      !isFormData ? { 'Content-Type': 'application/json' } : {}
+      !isFormData ? { "Content-Type": "application/json" } : {}
     );
 
-    (method || '').match(/(GET|DELETE)/) &&
+    (method || "").match(/(GET|DELETE)/) &&
       (path = `${path}${format({ query: params })}`);
 
     const result = await fetch(path, {
       method: method,
       headers: headers,
       body:
-        (method || '').match(/(POST|PATCH)/) && params
+        (method || "").match(/(POST|PATCH)/) && params
           ? isFormData
             ? params
             : JSON.stringify(params)
           : null,
-      mode: 'cors'
+      mode: "cors"
     })
       .then(response => {
         responseStatus = response.status;

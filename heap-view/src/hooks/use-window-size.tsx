@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const useWindowSize = () => {
   const getSize = () => {
@@ -15,10 +15,10 @@ const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState(getSize);
 
   useEffect(() => {
-    window.addEventListener('resize', onResize);
+    window.addEventListener("resize", onResize);
 
     return () => {
-      window.removeEventListener('resize', onResize);
+      window.removeEventListener("resize", onResize);
     };
 
     // eslint-disable-next-line
